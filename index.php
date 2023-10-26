@@ -1,3 +1,3 @@
 <?php
-require_once('controllers/router.php');
+require_once('Controller/router.php');
 ?>
