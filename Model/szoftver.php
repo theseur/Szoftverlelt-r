@@ -14,6 +14,19 @@ class Szoftver
         $this->deactivate=$deactivate;
 
     }
+    public static function getAll()
+    {
+        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $data=$pdo->query("Select * from szoftver");
+        $ures=[];
+        foreach ($data as $row )
+        {
+            $ujgep= new Szoftver($row['id'],$row['nev'],$row['kategoria'], $row['deactivate']);
+            array_push($ures,$ujgep);
+        }
+        return $ures;
+    }
+
 
 }
 
