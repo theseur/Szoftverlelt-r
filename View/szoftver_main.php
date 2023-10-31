@@ -9,12 +9,21 @@
             <h1 class="header">Szoftver</h1>
         </header>
         <section>
+            <table>
+                <tr>
+                    <th>Név</th>
+                    <th>Kategória</th>
+                </tr>
             <?php foreach($viewData["gepek"] as $gep)
             {
-                    echo $gep->nev. $gep->kategoria;
-                    echo "<br>";
+                    echo "<tr>";
+                    echo "<td>". $gep->nev."</td>";
+                    echo "<td>". $gep->kategoria."</td>";
+                    echo "</tr>";
             } 
              ?>
+
+             </table>
         </section>
         <footer>lábléc</footer>
     </body>

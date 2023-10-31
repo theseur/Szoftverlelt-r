@@ -9,12 +9,21 @@
             <h1 class="header">Gépek</h1>
         </header>
         <section>
+            <table>
+            <tr>
+                    <th>Hely</th>
+                    <th>IPCím</th>
+                </tr>
             <?php foreach($viewData["gepek"] as $gep)
             {
-                    echo $gep->hely. $gep->	tipus.$gep->ipcim;
-                    echo "<br>";
+                    
+                    echo "<tr>";
+                    echo "<td>". $gep->hely."</td>";
+                    echo "<td>". $gep->ipcim."</td>";
+                    echo "</tr>";
             } 
              ?>
+             </table>
         </section>
         <footer>lábléc</footer>
     </body>

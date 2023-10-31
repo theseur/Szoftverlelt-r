@@ -12,6 +12,7 @@
             <a href="">Bejelentkezes</a>
             <a href="index.php?page=test">Gépek</a>
             <a href="index.php?page=szoftverc">Szoftver</a>
+            <a href="index.php?page=telepitesc">Telepítés</a>
         </section>
         <footer>lábléc</footer>
     </body>
