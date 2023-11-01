@@ -13,6 +13,7 @@
             <a href="index.php?page=test">Gépek</a>
             <a href="index.php?page=szoftverc">Szoftver</a>
             <a href="index.php?page=telepitesc">Telepítés</a>
+            <a href="index.php?page=hirekc">Hírek vélemények</a>
         </section>
         <footer>lábléc</footer>
     </body>

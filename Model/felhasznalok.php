@@ -22,6 +22,26 @@ class Felhasznalok
 
     }
 
+    public function login($bejelentkezes, $jelszo)
+    {
+
+        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $data=$pdo->query("Select * from felhasznalok 
+        where bejelentkezes = '$bejelentkezes'
+        and
+        jelszo = sha1('$jelszo')
+        ");
+        $ures=[];
+        foreach ($data as $row )
+        {
+            $ujgep= new Felhasznalok($row['id'],$row['csaladi_nev'],$row['utonev'], 
+            $row['bejelentkezes'], $row['jelszo'],$row['jogosultsag'], $row['deactivate']);
+            array_push($ures,$ujgep);
+        }
+        return $ures;
+
+    }
+
 }
 
 ?>
