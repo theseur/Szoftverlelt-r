@@ -1,26 +1,32 @@
 <?php
-include_once("View/view_loader.php");
-include_once("Model/szoftver.php");
+require_once 'model/db.php';
+include_once 'View/view_loader.php';
+include_once 'Model/szoftver.php';
+
 class Szoftverc_Controller
 {
-    public $baseName= 'szoftver';  //meghatározni, hogy melyik oldalon vagyunk
 
-    public function main() // a routeráltal továbbított paramétereket kapja
+    private $dbModel;
+    public $baseName = 'szoftver';
+
+    public function __construct()
     {
-        $gepek= Szoftver::getAll();
-        //var_dump($gepek);
-        //$testModel= new Test_Model;  //az osztályhoz tartozó modell
-     
-            //modellből lekérdezzük a kért adatot
-           // $reqData= $testModel->get_data($vars['data']); 
-            //betöltjük a nézetet
-            $view= new View_Loader($this->baseName.'_main');
-            //átadjuk a lekérdezett adatokat a nézetnek
-            $view->assign('szoveg', "tesztszöveg");
-            //$view->assign('content', $reqData['content']);
-            
-            $view->assign('gepek', $gepek);
-        
+        $this->dbModel = new DatabaseModel();
+    }
+
+    public function main()
+    {
+        $view = new View_Loader($this->baseName . '_main');
+        $view->assign('softwares', $this->listAllSoftware());
+    }
+
+    private function listAllSoftware()
+    {
+        $query = "SELECT * FROM szoftver";
+        $softwares = [];
+        foreach ($this->dbModel->findAll($query) as $row) {
+            array_push($softwares, new Szoftver($row));
+        }
+        return $softwares;
     }
 }
-?>
