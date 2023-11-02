@@ -1,21 +1,15 @@
 <?php
+require_once './mnb/util.php';
 class SupportedDateInterval
 {
 
-    private string $format_type = 'Y-m-d';
     private DateTime $startDate;
     private DateTime $endDate;
 
-
     public function __construct(string $startDate, string $endDate)
     {
-        $this->startDate = $this->convertToDate($startDate);
-        $this->endDate = $this->convertToDate($endDate);
-    }
-
-    private function convertToDate(string $stringDate): DateTime
-    {
-        return DateTime::createFromFormat($this->format_type, $stringDate);
+        $this->startDate = convertToDate($startDate);
+        $this->endDate = convertToDate($endDate);
     }
 
     public function getStartDate(): DateTime
@@ -30,11 +24,11 @@ class SupportedDateInterval
 
     public function getStartDateString(): string
     {
-        return $this->getStartDate()->format($this->format_type);
+        return convertDateToSting($this->getStartDate());
     }
 
     public function getEndDateString(): string
     {
-        return $this->getEndDate()->format($this->format_type);
+        return convertDateToSting($this->getEndDate());
     }
 }

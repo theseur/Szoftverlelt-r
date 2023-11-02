@@ -1,8 +1,8 @@
 <?php
 require_once 'model/mnb/currency.php';
+require_once 'model/mnb/exchange.php';
 require_once 'model/mnb/dateInterval.php';
 require_once 'model/mnb/day.php';
-require_once 'model/mnb/rate.php';
 
 
 class MNBSoapClient
@@ -11,41 +11,74 @@ class MNBSoapClient
 
     public function __construct()
     {
+        $this->initClient();
+    }
+
+    private function initClient(): void
+    {
         $params = array(
             'soap_version'   => SOAP_1_2
         );
-        $this->client = new SoapClient(MNB_URL, $params);
+        try {
+            $this->client = new SoapClient(MNB_URL, $params);
+        } catch (SoapFault $e) {
+            echo "Error: " . $e->getMessage();
+        }
     }
-
 
     public function getInterval(): SupportedDateInterval
     {
-        $result = $this->client->GetDateInterval();
-        $xmlContent = html_entity_decode($result->GetDateIntervalResult);
-
-        $response = new SimpleXMLElement($xmlContent);
+        $dateIntervalResult = $this->client->GetDateInterval();
+        $element = $this->createSimpleXMLElement($dateIntervalResult->GetDateIntervalResult);
 
         return new SupportedDateInterval(
-            (string) $response->DateInterval['startdate'],
-            (string) $response->DateInterval['enddate']
+            (string) $element->DateInterval['startdate'],
+            (string) $element->DateInterval['enddate']
         );
     }
 
     public function getCurrencies(): array
     {
-        $result = $this->client->GetCurrencies();
-        $resultXml = $result->GetCurrenciesResult;
-
-        $xmlContent = html_entity_decode($resultXml);
-        $response = new SimpleXMLElement($xmlContent);
+        $currenciesResult = $this->client->GetCurrencies();
+        $element = $this->createSimpleXMLElement($currenciesResult->GetCurrenciesResult);
 
         $currencies = [];
-        foreach ($response->Currencies->Curr as $c) {
-            $currency = new Currency();
-            $currency->name = (string)$c;
-
-            array_push($currencies, $currency);
+        foreach ($element->Currencies->Curr as $c) {
+            $currencies[] = new Currency((string)$c);
         }
         return $currencies;
+    }
+
+
+    public function getCurrentExchangeRates(): EchangeRate
+    {
+        $currentExchangeResult = $this->client->GetCurrentExchangeRates();
+        return EchangeRate::createCurrentExchange(
+            $this->createSimpleXMLElement($currentExchangeResult->GetCurrentExchangeRatesResult)
+        );
+    }
+
+    public function getExchangeRates(string $fromDate, ?string $toDate, array $currencyNames): array
+    {
+        $params = [
+            'startDate' => $fromDate,
+            'endDate' => $toDate ?? date('Y-m-d'),
+            'currencyNames' => implode(',', array_map('strtoupper', $currencyNames))
+        ];
+
+        $exchangeRatesResult = $this->client->GetExchangeRates($params);
+        $element = $this->createSimpleXMLElement($exchangeRatesResult->GetExchangeRatesResult);
+
+        $rates = [];
+        foreach ($element as $rate) {
+            $rates[] = EchangeRate::createExchange($rate);
+        }
+        return $rates;
+    }
+
+
+    private function createSimpleXMLElement(string $xmlContent): SimpleXMLElement
+    {
+        return new SimpleXMLElement(html_entity_decode($xmlContent));
     }
 }
