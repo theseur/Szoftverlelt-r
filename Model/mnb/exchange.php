@@ -61,3 +61,12 @@ class Rate
         $this->value = (float)str_replace(',', '.', (string)$data);
     }
 }
+
+
+class Moddel{
+
+    public string $date;
+    public string $currency;
+    public string $value;
+
+}
