@@ -14,11 +14,11 @@
                     <th>Név</th>
                     <th>Kategória</th>
                 </tr>
-            <?php foreach($viewData["gepek"] as $gep)
+            <?php foreach($viewData["softwares"] as $sw)
             {
                     echo "<tr>";
-                    echo "<td>". $gep->nev."</td>";
-                    echo "<td>". $gep->kategoria."</td>";
+                    echo "<td>". $sw->nev."</td>";
+                    echo "<td>". $sw->kategoria."</td>";
                     echo "</tr>";
             } 
              ?>
