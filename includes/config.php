@@ -10,3 +10,5 @@ const DB_USER = 'root';
 const DB_PASS = '';//TODO: szerintem ezt majd a tárhhelyen le kell cserélni
 
 const MNB_URL = 'http://www.mnb.hu/arfolyamok.asmx?WSDL';
+
+const SOAP_SERVER_URL = 'http://localhost/Szoftverlelt-r/Server/soap_server.php';

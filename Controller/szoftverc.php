@@ -1,32 +1,21 @@
 <?php
-require_once 'model/db.php';
+require_once './Service/softwareService.php';
 include_once 'View/view_loader.php';
-include_once 'Model/szoftver.php';
 
 class Szoftverc_Controller
 {
 
-    private $dbModel;
+    private SoftwareService $softwareService;
     public $baseName = 'szoftver';
 
     public function __construct()
     {
-        $this->dbModel = new DatabaseModel();
+        $this->softwareService = new SoftwareService();
     }
 
     public function main()
     {
         $view = new View_Loader($this->baseName . '_main');
-        $view->assign('softwares', $this->listAllSoftware());
-    }
-
-    private function listAllSoftware()
-    {
-        $query = "SELECT * FROM szoftver";
-        $softwares = [];
-        foreach ($this->dbModel->findAll($query) as $row) {
-            array_push($softwares, new Szoftver($row));
-        }
-        return $softwares;
+        $view->assign('softwares', $this->softwareService->listAllSoftware());
     }
 }
