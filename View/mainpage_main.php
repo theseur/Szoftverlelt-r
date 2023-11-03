@@ -14,6 +14,7 @@
             <a href="index.php?page=szoftverc">Szoftver</a>
             <a href="index.php?page=telepitesc">Telepítés</a>
             <a href="index.php?page=hirekc">Hírek vélemények</a>
+            <a href="index.php?page=mnb">MNB Árfolyam</a>
         </section>
         <footer>lábléc</footer>
     </body>
