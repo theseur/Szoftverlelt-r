@@ -16,7 +16,8 @@ class SoftwareService
 
     public function listAllSoftware()
     {
-        $query = "SELECT * FROM szoftver";
+        $query = "SELECT * FROM szoftver
+        where deactivate=0";
         $softwares = [];
         foreach ($this->dbModel->findAll($query) as $row) {
             array_push($softwares, new Szoftver($row));

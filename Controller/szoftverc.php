@@ -5,7 +5,8 @@ include_once 'View/view_loader.php';
 class Szoftverc_Controller
 {
 
-    private SoftwareService $softwareService;
+    //private SoftwareService $softwareService;
+    private $softwareService;
     public $baseName = 'szoftver';
 
     public function __construct()

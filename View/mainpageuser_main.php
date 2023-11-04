@@ -7,10 +7,10 @@
     <body>
         <header>
             <h1 class="header">Föoldal</h1>
+            <?php include "nameinheader.php"?>
         </header>
         <section>
-            <a href="index.php?page=loginc">Bejelentkezes</a>
-            <!--<a href="index.php?page=regisztracioc">Regisztráció</a>-->
+            <a href="index.php?page=logoutc">Kijelentkezés</a>     
             <a href="index.php?page=test">Gépek</a>
             <a href="index.php?page=szoftverc">Szoftver</a>
             <a href="index.php?page=telepitesc">Telepítés</a>

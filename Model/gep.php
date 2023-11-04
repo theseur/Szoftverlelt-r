@@ -19,7 +19,8 @@ class Gep
     public static function getAll()
     {
         $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
-        $data=$pdo->query("Select * from gep");
+        $data=$pdo->query("Select * from gep
+        where deactivate =0");
         $ures=[];
         foreach ($data as $row )
         {

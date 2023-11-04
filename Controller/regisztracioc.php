@@ -1,9 +1,9 @@
 <?php
 include_once("View/view_loader.php");
 ;
-class Loginc_Controller
+class Regisztracioc_Controller
 {
-    public $baseName= 'login';  //meghatározni, hogy melyik oldalon vagyunk
+    public $baseName= 'regisztracio';  //meghatározni, hogy melyik oldalon vagyunk
 
     public function main() // a routeráltal továbbított paramétereket kapja
     {

@@ -2,7 +2,7 @@
 include_once("View/view_loader.php");
 include_once("Model/felhasznalok.php");
 
-class Felhasznalokc_Controller
+class Loginfeldolgozoc_Controller
 {
     public $baseName= 'felhasznalok';  //meghatározni, hogy melyik oldalon vagyunk
 
@@ -16,16 +16,21 @@ class Felhasznalokc_Controller
             //modellből lekérdezzük a kért adatot
            // $reqData= $testModel->get_data($vars['data']); 
             //betöltjük a nézetet
-            $view= new View_Loader($this->baseName.'_main');
-            //átadjuk a lekérdezett adatokat a nézetnek
-            $view->assign('szoveg', "tesztszöveg");
-            //$view->assign('content', $reqData['content']);
             
-            $view->assign('gepek', $gepek);
+            //átadjuk a lekérdezett adatokat a nézetnek
+           
 
             if(sizeof($gepek)==0)
+            {           
+                $view= new View_Loader('login_main');
+                $view->assign('hibauzenet', "Nem sikerült bejelentkezni");
+            }
+            else
             {
-                
+                $view= new View_Loader('mainpageuser_main');
+                $_SESSION["user"]=serialize($gepek[0]) ;
+                $view->assign('teljesnev', $gepek[0]->csaladi_nev." ". $gepek[0]->utonev." ".$gepek[0]->bejelentkezes);
+
             }
         
     }

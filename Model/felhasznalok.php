@@ -42,6 +42,22 @@ class Felhasznalok
 
     }
 
+    public function regisztacio($csaladi_nev, $utonev, $bejelentkezes, $jelszo)
+    {
+        $sikeresreg=false;
+        if($_POST["jelszo"]!=$_POST["jelszo1"])
+        {
+            return  $sikeresreg;
+        }
+        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $stmt = $pdo->prepare("Insert into felhasznalok (csaladi_nev, utonev, bejelentkezes,jelszo)
+        Values(?,?,?,sha1(?))");
+        $stmt->execute([$csaladi_nev,$utonev,$bejelentkezes, $jelszo]);
+       
+        return  $sikeresreg;
+
+    }
+
 }
 
 ?>

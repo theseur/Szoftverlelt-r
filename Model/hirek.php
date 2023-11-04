@@ -21,7 +21,9 @@ class Hirek
     public static function getAll()
     {
         $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
-        $data=$pdo->query("Select * from hirek order by id desc");
+        $data=$pdo->query("Select * from hirek 
+        where deactivate =0
+        order by id desc");
         $ures=[];
         foreach ($data as $row )
         {
@@ -29,6 +31,23 @@ class Hirek
             array_push($ures,$ujgep);
         }
         return $ures;
+    }
+
+    public static function modositas($id,$userid)
+    {
+        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $data=$pdo->query("Select * from hirek order by id desc");
+
+    }
+    public static function torles($id, $userid)
+    {
+        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $data=$pdo->query("UPDATE hirek
+        SET deactivate = 1
+        WHERE id=$id
+        and userid=$userid
+        ");
+
     }
 
 }

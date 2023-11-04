@@ -21,7 +21,9 @@ class Telepites
     public static function getAll()
     {
         $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
-        $data=$pdo->query("Select * from telepites");
+        $data=$pdo->query("Select * from telepites
+        where deactivate =0
+        ");
         $ures=[];
         foreach ($data as $row )
         {

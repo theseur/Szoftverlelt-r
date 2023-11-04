@@ -1,32 +1,15 @@
 <?php
 include_once("View/view_loader.php");
 include_once("Model/hirek.php");
-class Hirekc_Controller
+include_once("Model/felhasznalok.php");
+class Hirektorlesc_Controller
 {
     public $baseName= 'hirek';  //meghatározni, hogy melyik oldalon vagyunk
 
     public function main() // a routeráltal továbbított paramétereket kapja
     {
-        if(isset($_SESSION["user"]))
-        {
-            $user=unserialize( $_SESSION["user"]);
-            $gepek= Hirek::getAll();
-        //var_dump($gepek);
-        //$testModel= new Test_Model;  //az osztályhoz tartozó modell
-     
-            //modellből lekérdezzük a kért adatot
-           // $reqData= $testModel->get_data($vars['data']); 
-            //betöltjük a nézetet
-            $view= new View_Loader('hirekuser_main');
-            //átadjuk a lekérdezett adatokat a nézetnek
-            $view->assign('szoveg', "tesztszöveg");
-            //$view->assign('content', $reqData['content']);
-            
-            $view->assign('gepek', $gepek);
-
-        }
-        else
-        {
+        $user=unserialize( $_SESSION["user"]);
+            $torles=Hirek::torles($_GET["id"],  $user->id);
             $gepek= Hirek::getAll();
             //var_dump($gepek);
             //$testModel= new Test_Model;  //az osztályhoz tartozó modell
@@ -41,7 +24,7 @@ class Hirekc_Controller
                 
                 $view->assign('gepek', $gepek);
 
-        }
+        
 
 
        
