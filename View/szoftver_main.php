@@ -28,6 +28,9 @@
                             <td>
                                 <?= $sw->kategoria ?>
                             </td>
+                            <td>
+                                <a href="index.php?page=telepitesc&sw_id=<?= $sw->id ?>">telepített gépek</a>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>

@@ -3,7 +3,7 @@
 const APP_NAME = 'Szoftverleltár';
 const CREATORS = 'Farkas Tibor & Balogh Norbert';
 
-const HOME_PAGE = 'home';
+const HOME_PAGE = 'http://localhost/Szoftverlelt-r/';
 
 const DB_HOST = 'localhost';
 const DB_NAME = 'szoftverleltar';

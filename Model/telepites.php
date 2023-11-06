@@ -1,23 +1,27 @@
 <?php
 class Telepites
 {
-    public $id;
-    public $gepid;
-    public $szoftverid;
+    public $szoftverName;
+    public $szoftverKategoria;
+    public $hely;
+    public $tipus;
+    public $ipcim;
+    public $deactivate;
     public $verzio;
     public $datum;
-    public $deactivate;
 
-    public function __construct($id, $gepid, $szoftverid, $verzio, $datum, $deactivate)
-    {
-        $this->id=$id;
-        $this->gepid=$gepid;
-        $this->szoftverid=$szoftverid;
-        $this->verzio=$verzio;
-        $this->datum=$datum;
-        $this->deactivate=$deactivate;
-
+    public function __construct($row){
+        $this->szoftverName=$row['szoftverName'];
+        $this->szoftverKategoria=$row['szoftverKategoria'];
+        $this->hely=$row['hely'];
+        $this->tipus=$row['tipus'];
+        $this->ipcim=$row['ipcim'];
+        $this->deactivate=$row['deactivate'];
+        $this->verzio=$row['verzio'];
+        $this->datum=$row['datum'];
     }
+
+  
     public static function getAll()
     {
         $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
