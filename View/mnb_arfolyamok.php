@@ -17,25 +17,33 @@
         <h2 class="text-center mt-4 mb-3">How to Create Dynamic Chart in PHP using Chart.js</a></h2>
 
         <div class="card">
-            <div class="card-header">válassz</div>
             <div class="card-body">
                 <div class="form-group">
-                    <h2 class="mb-4">éé</h2>
+                    <h2 class="mb-4">Dátum választó</h2>
 
+                    <!-- Dátumtól választó -->
+                    <div class="input-group mb-3">
+                        <input type="date" class="form-control" id="start_date">
+                    </div>
+
+                    <!-- Dátumig választó -->
+                    <div class="input-group mb-3">
+                        <input type="date" class="form-control" id="end_date">
+                    </div>
+
+                    <h2 class="mb-4">Deviza választó</h2>
+
+                    <!-- Multi select deviza választó -->
                     <select id="multiple-select" multiple>
                         <?php
-
-                        print_r($viewData["currencies"]);
                         foreach ($viewData["currencies"] as $option) {
                             echo "<option value='$option->name'>$option->name</option>";
                         }
                         ?>
                     </select>
-
-
                 </div>
                 <div class="form-group">
-                    <button type="button" name="submit_data" class="btn btn-primary" id="submit_data">Submit</button>
+                    <button type="button" name="submit_data" class="btn btn-primary" id="submit_data">Keresés</button>
                 </div>
             </div>
         </div>
@@ -49,14 +57,42 @@
         new MultiSelectTag('multiple-select');
 
         $(document).ready(function() {
+            var myChart;
+            var modelsString;
 
-            makechart();
+            <?php
+            echo "modelsString = '{$viewData["models"]}';";
+            ?>
 
-            function makechart() {
-                var modelsString;
-                <?php
-                echo "modelsString = '{$viewData["models"]}';";
-                ?>
+            $('#submit_data').click(function() {
+                var startDate = $('#start_date').val();
+                var endDate = $('#end_date').val();
+                var selectedCurrencies = $('#multiple-select').val();
+
+                var requestData = {
+                    startDate: startDate,
+                    endDate: endDate,
+                    selectedCurrencies: selectedCurrencies
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'index.php?page=mnb&action=getExchangeData',
+                    data: requestData,
+                    success: function(response) {
+                        if (myChart) {
+                            myChart.destroy();
+                        }
+
+                        modelsString = response;
+                        makechart(modelsString);
+                    }
+                });
+            });
+
+            makechart(modelsString);
+
+            function makechart(modelsString) {
                 var models = JSON.parse(modelsString);
                 var dataByCurrency = {};
 
@@ -83,7 +119,7 @@
                     }
                 });
 
-                const myChart = new Chart(ctx, {
+                myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: dataByCurrency[currencies[0]].dates,
@@ -101,7 +137,7 @@
 
         });
     </script>
-
+    <?php include_once './View/common/footer.php';   ?>
 </body>
 
 </html>

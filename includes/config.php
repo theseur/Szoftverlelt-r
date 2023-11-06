@@ -1,6 +1,7 @@
 <?php
 
 const APP_NAME = 'Szoftverleltár';
+const CREATORS = 'Farkas Tibor & Balogh Norbert';
 
 const HOME_PAGE = 'home';
 
