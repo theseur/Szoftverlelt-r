@@ -13,7 +13,7 @@ class Telepitesc_Controller
         $this->softwareService = new SoftwareService();
     }
 
-    public function main() // a routeráltal továbbított paramétereket kapja
+    public function main()
     {
         $view = new View_Loader($this->baseName . '_main');
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['sw_id'])) {

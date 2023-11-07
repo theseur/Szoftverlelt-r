@@ -26,7 +26,7 @@ class Mnb_Controller
                     $selectedCurrencies[] = $ac->name;
                 }
             }
-//print_r($selectedCurrencies);
+
             if ($_GET['action'] === 'getExchangeData') {
                 $startDate = $_POST['startDate'];
                 $endDate = $_POST['endDate'];
@@ -35,13 +35,13 @@ class Mnb_Controller
 
                 print_r($data);
                 exit();
+                
             } else if ($_GET['action'] === 'getDailyExchangeData') {
                 $day = $_POST['day'];
-                $data = $this->getExchangeData($day, $day, $selectedCurrencies);
 
-                print_r($data);
-                //$view->assign('d', $data);
+                print_r($this->getExchangeData($day, $day, $selectedCurrencies));
                 exit();
+
             } else if ($_GET['action'] === 'getMonthlyExchangeData') {
                 $incomMonth = $_POST['month'];
                 list($year, $month) = explode('-', $incomMonth);
