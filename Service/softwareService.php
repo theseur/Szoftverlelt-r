@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../Model/db.php';
 require_once __DIR__ . '/../Model/szoftver.php';
+require_once __DIR__ . '/../Model/gep.php';
 require_once __DIR__ . '/../Model/telepites.php';
 
 class SoftwareService
@@ -14,9 +15,9 @@ class SoftwareService
         $this->dbModel = new DatabaseModel();
     }
 
-    public function listAllSoftware()
+    public function listAllSoftware(): array
     {
-        $query = "SELECT * FROM szoftver WHERE (deactivate=0 OR deactivate = NULL)";
+        $query = "SELECT * FROM szoftver";
         $softwares = [];
         foreach ($this->dbModel->findAll($query) as $row) {
             $softwares[] = new Szoftver($row);
@@ -24,7 +25,16 @@ class SoftwareService
         return $softwares;
     }
 
-    public function listTelepitesBySzoftverId(int $szoftverId)
+    public function listAllMachine(): array
+    {
+        $machines = [];
+        foreach ($this->dbModel->findAll("SELECT * FROM gep") as $row) {
+            $machines[] = new Gep($row);
+        }
+        return $machines;
+    }
+
+    public function listTelepitesBySzoftverId(int $szoftverId): array
     {
         $query = "SELECT DISTINCT 
                     sz.nev as szoftverName,
@@ -40,18 +50,10 @@ class SoftwareService
                     INNER JOIN gep g ON t.gepid = g.id
                 WHERE sz.id = ?";
 
-        $telepites = [];
-        $stmt = $this->dbModel->getPDO()->prepare($query);
-        $stmt->execute([$szoftverId]);
-
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($result as $row) {
-            $telepites[] = new Telepites($row);
-        }
-        return $telepites;
+        return $this->wrapResult($query, $szoftverId);
     }
 
-    public function gepreTelepitettRendszerek(int $gepId)
+    public function gepreTelepitettRendszerek(int $gepId): array
     {
         $query = "SELECT DISTINCT 
                     sz.nev as szoftverName,
@@ -67,9 +69,14 @@ class SoftwareService
                     INNER JOIN gep g ON t.gepid = g.id
                 WHERE g.id = ?";
 
+        return $this->wrapResult($query, $gepId);
+    }
+
+    private function wrapResult(string $query, int $parameter): array
+    {
         $telepites = [];
         $stmt = $this->dbModel->getPDO()->prepare($query);
-        $stmt->execute([$gepId]);
+        $stmt->execute([$parameter]);
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result as $row) {

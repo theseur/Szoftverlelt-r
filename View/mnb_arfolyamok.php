@@ -14,42 +14,41 @@
 
 <body>
     <div class="container">
-        <h2 class="text-center mt-4 mb-3">How to Create Dynamic Chart in PHP using Chart.js</a></h2>
+        <h2 class="text-center mt-4 mb-3">Valuták összehasonlítása grafikonon</a></h2>
 
         <div class="card">
-            <div class="card-body">
-                <div class="form-group">
-                    <h2 class="mb-4">Dátum választó</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <h2 class="mb-4">Dátum választó</h2>
 
-                    <!-- Dátumtól választó -->
-                    <div class="input-group mb-3">
-                        <input type="date" class="form-control" id="start_date">
+                        <div class="input-group mb-3">
+                            <input type="date" class="form-control" id="start_date">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="date" class="form-control" id="end_date">
+                        </div>
+
+                        <h2 class="mb-4">Deviza választó</h2>
+                        <select id="multiple-select" multiple>
+                            <?php
+                            foreach ($viewData["currencies"] as $option) {
+                                echo "<option value='$option->name'>$option->name</option>";
+                            }
+                            ?>
+                        </select>
                     </div>
-
-                    <!-- Dátumig választó -->
-                    <div class="input-group mb-3">
-                        <input type="date" class="form-control" id="end_date">
+                    <div class="form-group">
+                        <button type="button" name="submit_data" class="btn btn-primary" id="submit_data">Keresés</button>
                     </div>
-
-                    <h2 class="mb-4">Deviza választó</h2>
-
-                    <!-- Multi select deviza választó -->
-                    <select id="multiple-select" multiple>
-                        <?php
-                        foreach ($viewData["currencies"] as $option) {
-                            echo "<option value='$option->name'>$option->name</option>";
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <button type="button" name="submit_data" class="btn btn-primary" id="submit_data">Keresés</button>
                 </div>
             </div>
+            <br>
+            <div class="card">
+            <canvas id="exchangeRateChart" width="600" height="400"></canvas>
+            </div>
         </div>
-    </div>
-    <div class="container-fluid">
-        <canvas id="exchangeRateChart" width="600" height="400"></canvas>
     </div>
 
     <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
@@ -93,6 +92,8 @@
             makechart(modelsString);
 
             function makechart(modelsString) {
+
+                console.log("modelString:"+modelsString);
                 var models = JSON.parse(modelsString);
                 var dataByCurrency = {};
 
