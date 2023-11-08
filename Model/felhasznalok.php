@@ -22,6 +22,19 @@ class Felhasznalok
 
     }
 
+    public static function instanceof(string $row)
+    {
+        return new self(
+                $row['id'],
+                $row['csaladi_nev'],
+                $row['utonev'],
+                null,
+                null,
+                $row['jogosultsag'],
+                $row['deactivate']
+        );
+    }
+
     public function login($bejelentkezes, $jelszo)
     {
 
@@ -59,5 +72,3 @@ class Felhasznalok
     }
 
 }
-
-?>

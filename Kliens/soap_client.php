@@ -1,30 +1,106 @@
 <?php
-//ini_set("default_socket_timeout", 5000);
-$options = array(
-    // Kell location és uri is:
-    "location" => "http://localhost/Szoftverlelt-r/Server/soap_server.php",
-    "uri" => "http://localhost/Szoftverlelt-r/Server/soap_server.php",
-    'keep_alive' => false,
-    //'trace' =>true,
-    //'connection_timeout' => 5000,
-    //'cache_wsdl' => WSDL_CACHE_NONE,
-);
+require_once './../includes/config.php';
+
+$options = [
+    "location" => SOAP_SERVER_URL,
+    "uri" => SOAP_SERVER_URL,
+    'keep_alive' => false
+];
 try {
     $kliens = new SoapClient(null, $options);
-    echo $kliens->szoveg() . "<br>";
-    $eredm = $kliens->ketszeres(5);
-    echo $eredm . "<br>";
-    echo $kliens->ido() . "<br>";
-    echo $kliens->get3X() . "<br>";
-    $eredm = $kliens->adatok();
-    var_dump($eredm);
+
+    szoftverek($kliens);
+    felhasznalok($kliens);
+    gepek($kliens);
+    $gep = $kliens->Gepek()[0];
+    $szoftver = $kliens->Szoftverek()[0];
+    TelepitettSzoftver($kliens, $szoftver);
+    GepreTelepitettSzoftverek($kliens, $gep);
+} catch (SoapFault $ex) {
+    var_dump($ex);
+}
+
+
+function szoftverek($kliens)
+{
     echo "<br>";
-    foreach ($eredm as $elem)
-        echo $elem . "<br>";
+    echo "=================== szoftverek ==========================";
+    echo "<br>";
 
-    echo "szoftverek:";
+    foreach ($kliens->Szoftverek() as $elem) {
+        echo "Szoftver [ id= " . $elem->id . ", nev= "
+            . $elem->nev . ", kategoria= " . $elem->kategoria . ", active = "
+            . (($elem->deactivate === null || $elem->deactivate === 0) ? "igen" : "nem")
+            . "]<br>";
+    }
 
-    print_r($kliens->Szoftverek());
-} catch (SoapFault $e) {
-    var_dump($e);
+    echo "<br>";
+}
+
+
+function felhasznalok($kliens)
+{
+    echo "<br>";
+    echo "=================== Felhasználók ==========================";
+    echo "<br>";
+
+    foreach ($kliens->felhasznalok() as $elem) {
+        echo "Felhasznalo [ id= " . $elem->id . ", nev= "
+            . $elem->csaladi_nev + $elem->utonev . ", jogosultsag= " . $elem->jogosultsag
+            . ", active = " . (($elem->deactivate === null || $elem->deactivate === 0) ? "igen" : "nem")
+            . "]<br>";
+    }
+
+    echo "<br>";
+}
+
+
+function gepek($kliens)
+{
+    echo "<br>";
+    echo "=================== Gépek ==========================";
+    echo "<br>";
+
+    foreach ($kliens->Gepek() as $elem) {
+        echo "Szoftver [ id= " . $elem->id . ", hely= "
+            . $elem->hely . ", típus= " . $elem->tipus
+            . ", ipcim= " . $elem->ipcim . ", active = "
+            . (($elem->deactivate === null || $elem->deactivate === 0) ? "igen" : "nem")
+            . "]<br>";
+    }
+
+    echo "<br>";
+}
+
+function TelepitettSzoftver($kliens, $szoftver)
+{
+    echo "<br>";
+    echo "=================== A " . $szoftver->nev . " a következő gépeken érhető el ==========================";
+    echo "<br>";
+
+    $szoftverId = $szoftver->id;
+    foreach ($kliens->TelepitettSzoftver($szoftverId) as $elem) {
+        echo  "hely= " . $elem->hely . ", típus= " . $elem->tipus
+            . ", ipcim= " . $elem->ipcim . ", verzio = "
+            . $elem->verzio . ", datum = " . $elem->datum
+            . "<br>";
+    }
+
+    echo "<br>";
+}
+
+
+function GepreTelepitettSzoftverek($kliens, $gep)
+{
+    echo "<br>";
+    echo "=================== A következő gépen [hely = " . $gep->hely . ", ip = " . $gep->ipcim . "] a következő szoftverek érhetők el ==========================";
+    echo "<br>";
+    $gepId = $gep->id;
+    foreach ($kliens->GepreTelepitettSzoftverek($gepId) as $elem) {
+        echo "szoftverName = " . $elem->szoftverName . ", szoftverKategoria= "
+            . $elem->szoftverKategoria . ", verzio= " . $elem->verzio
+            . ", datum= " . $elem->datum . "<br>";
+    }
+
+    echo "<br>";
 }

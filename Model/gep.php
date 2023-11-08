@@ -7,13 +7,13 @@ class Gep
     public $ipcim;
     public $deactivate;
 
-    public function __construct($id, $hely, $tipus, $ipcim, $deactivate)
+    public function __construct($row)
     {
-        $this->id=$id;
-        $this->hely=$hely;
-        $this->tipus=$tipus;
-        $this->ipcim=$ipcim;
-        $this->deactivate=$deactivate;
+        $this->id=$row['id'];
+        $this->hely=$row['hely'];
+        $this->tipus=$row['tipus'];
+        $this->ipcim=$row['ipcim'];
+        $this->deactivate=$row['deactivate'];
 
     }
     public static function getAll()
@@ -24,7 +24,7 @@ class Gep
         $ures=[];
         foreach ($data as $row )
         {
-            $ujgep= new Gep($row['id'],$row['hely'],$row['tipus'], $row['ipcim'], $row['deactivate']);
+            $ujgep= new Gep($row);
             array_push($ures,$ujgep);
         }
         return $ures;

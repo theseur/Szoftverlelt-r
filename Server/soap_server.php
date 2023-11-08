@@ -1,41 +1,18 @@
 <?php
 require_once './../Service/softwareService.php';
+require_once './../Service/userService.php';
 require_once './../includes/config.php';
 
 class SoapService
 {
-    private $x = 50;
 
     private SoftwareService $softwareService;
+    private UserService $userService;
 
     public function __construct()
     {
         $this->softwareService = new SoftwareService();
-    }
-
-    public function szoveg()
-    {
-        return "Hello";
-    }
-    public function ketszeres($y)
-    {
-        return 2 * $y;
-    }
-    public function ido()
-    {
-        return date("Y-m-d H:i:s", time());
-    }
-    public function get3X()
-    {
-        return $this->x * 3;
-    }
-    public function adatok()
-    {
-        $eredmeny = array();
-        $eredmeny[] = "Szöveg1";
-        $eredmeny[] = 20;
-        $eredmeny[] = 25.34;
-        return $eredmeny;
+        $this->userService = new UserService();
     }
 
     public function Szoftverek()
@@ -45,23 +22,30 @@ class SoapService
 
     public function Felhasznalok()
     {
-        //TODO: need service
-        return null;
+        return $this->userService->listUsers();
     }
 
     public function Gepek()
     {
-        //TODO: need service
-        return null;
+        return $this->softwareService->listAllMachine();
     }
 
-    public function SzoftverTelepitesek()
+    public function TelepitettSzoftver($szoftverId)
     {
-        //TODO: need service
-        return null;
+        return $this->softwareService->listTelepitesBySzoftverId($szoftverId);
+    }
+
+    public function GepreTelepitettSzoftverek(int $gepId)
+    {
+        return $this->softwareService->gepreTelepitettRendszerek($gepId);
     }
 
     public function Hirek()
+    {
+        return $this->userService->hirek();
+    }
+
+    public function FelhasznaloHirei(int $felhasznaloid)
     {
         //TODO: need service
         return null;

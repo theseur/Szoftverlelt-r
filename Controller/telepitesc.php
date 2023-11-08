@@ -1,27 +1,38 @@
 <?php
-include_once("View/view_loader.php");
+include_once 'View/view_loader.php';
+require_once './Service/softwareService.php';
 include_once("Model/telepites.php");
 
 class Telepitesc_Controller
 {
-    public $baseName= 'telepites';  //meghatározni, hogy melyik oldalon vagyunk
+    private $baseName = 'telepites';
+    private SoftwareService $softwareService;
 
-    public function main() // a routeráltal továbbított paramétereket kapja
+    public function __construct()
     {
-        $gepek= Telepites::getAll();
-        //var_dump($gepek);
-        //$testModel= new Test_Model;  //az osztályhoz tartozó modell
-     
-            //modellből lekérdezzük a kért adatot
-           // $reqData= $testModel->get_data($vars['data']); 
-            //betöltjük a nézetet
-            $view= new View_Loader($this->baseName.'_main');
-            //átadjuk a lekérdezett adatokat a nézetnek
-            $view->assign('szoveg', "tesztszöveg");
-            //$view->assign('content', $reqData['content']);
-            
+        $this->softwareService = new SoftwareService();
+    }
+
+    public function main()
+    {
+        $view = new View_Loader($this->baseName . '_main');
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['sw_id'])) {
+
+            $sw_id = $_GET['sw_id'];
+
+            $gepek =  $this->softwareService->listTelepitesBySzoftverId($sw_id);
+            $view->assign('szoftver', $gepek[0]);
             $view->assign('gepek', $gepek);
-        
+        } else if (isset($_GET['gep_id'])) {
+
+            $gep_id = $_GET['gep_id'];
+            $szoftverek =  $this->softwareService->gepreTelepitettRendszerek($gep_id);
+            $view->assign('gep', $szoftverek[0]);
+            $view->assign('szoftverek', $szoftverek);
+        } else {
+
+            header("Location: " . HOME_PAGE);
+            exit();
+        }
     }
 }
-?>
