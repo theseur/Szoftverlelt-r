@@ -21,8 +21,11 @@
             } 
              ?>
 
-             </table>
-        </section>
-        <footer>lábléc</footer>
-    </body>
+
+
+        </table>
+    </section>
+    <?php include_once './View/common/footer.php';   ?>
+</body>
+
 </html>

@@ -58,11 +58,19 @@ class MNBSoapClient
         );
     }
 
-    public function getExchangeRates(string $fromDate, ?string $toDate, array $currencyNames): array
+    public function getExchangeRates(?string $fromDate, ?string $toDate, array $currencyNames): array
     {
+        if ($fromDate !== null && strtotime($fromDate) === false) {
+            $fromDate = date('Y-m-d', strtotime('-1 month'));
+        }
+
+        if ($toDate !== null && strtotime($toDate) === false) {
+            $toDate = date('Y-m-d');
+        }
+
         $params = [
             'startDate' => $fromDate,
-            'endDate' => $toDate ?? date('Y-m-d'),
+            'endDate' => $toDate,
             'currencyNames' => implode(',', array_map('strtoupper', $currencyNames))
         ];
 

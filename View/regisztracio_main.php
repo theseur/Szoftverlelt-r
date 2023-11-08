@@ -30,6 +30,6 @@
             </form>
 
         </section>
-        <footer>lábléc</footer>
+        <?php include_once './View/common/footer.php';   ?>
     </body>
 </html>
