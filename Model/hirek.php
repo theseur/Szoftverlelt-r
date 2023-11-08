@@ -33,6 +33,15 @@ class Hirek
         return $ures;
     }
 
+    public static function modositaskiolvas($id,$userid)
+    {
+        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $data=$pdo->query("Select * from hirek
+        WHERE userid=$userid
+        WHERE id=$id");
+
+    }
+
     public static function modositas($id,$userid)
     {
         $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');

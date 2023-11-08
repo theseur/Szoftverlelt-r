@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<?php include "nameinheader.php"?>
     <div class="container">
         <h2 class="text-center mt-4 mb-3">How to Create Dynamic Chart in PHP using Chart.js</a></h2>
 

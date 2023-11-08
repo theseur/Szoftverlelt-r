@@ -8,6 +8,8 @@ class Hirektorlesc_Controller
 
     public function main() // a routeráltal továbbított paramétereket kapja
     {
+
+        
         $user=unserialize( $_SESSION["user"]);
             $torles=Hirek::torles($_GET["id"],  $user->id);
             $gepek= Hirek::getAll();

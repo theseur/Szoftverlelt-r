@@ -7,6 +7,7 @@
     <body>
         <header>
             <h1 class="header">Hírek</h1>
+            <?php include "nameinheader.php"?>
         </header>
         <section>
             <table>

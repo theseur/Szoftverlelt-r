@@ -7,6 +7,7 @@
     <body>
         <header>
             <h1 class="header">Telepítés</h1>
+            <?php include "nameinheader.php"?>
         </header>
         <section>
         <table>
