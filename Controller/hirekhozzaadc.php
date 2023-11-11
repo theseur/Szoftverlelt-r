@@ -1,6 +1,8 @@
 <?php
 include_once("View/view_loader.php");
-;
+include_once("Model/felhasznalok.php");
+include_once("Model/hirek.php");
+
 class Hirekhozzaadc_Controller
 {
     public $baseName= 'hirekhozzaad';  //meghatározni, hogy melyik oldalon vagyunk
@@ -15,6 +17,9 @@ class Hirekhozzaadc_Controller
            // $reqData= $testModel->get_data($vars['data']); 
             //betöltjük a nézetet
             $view= new View_Loader($this->baseName.'_main');
+            $user=unserialize( $_SESSION["user"]);
+            $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
+            $view->assign('userid', $user->id);
            
         
     }

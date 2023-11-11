@@ -13,6 +13,7 @@
         <div class="container">
             <h2>Szoftverek</h2>
             <?php include "nameinheader.php"?>
+            <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
             <table class="table table-striped">
                 <thead>
                     <tr>

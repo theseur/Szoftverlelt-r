@@ -9,6 +9,7 @@
             <h1 class="header">Hírek hozzáadása</h1>
             <?php include "nameinheader.php"?>
         </header>
+        <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
         <section>
         <?php if(isset($viewData["hibauzenet"]))
         {
@@ -16,6 +17,7 @@
         }
              ?>
         <form method="post" action="index.php?page=hirekfeldolgozoc">
+        <input type="hidden" name="userid" value="<?=$viewData['userid']?>">
         <textarea id="hirek" name="hir" rows="4" cols="50">
     </textarea>
             <input type="submit" value="Elküldés">
@@ -23,6 +25,6 @@
             
 
         </section>
-        <footer>lábléc</footer>
+        <?php include_once './View/common/footer.php';   ?>
     </body>
 </html>

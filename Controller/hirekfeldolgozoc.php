@@ -2,7 +2,7 @@
 include_once("View/view_loader.php");
 include_once("Model/felhasznalok.php");
 include_once("Model/hirek.php");
-;
+
 class Hirekfeldolgozoc_Controller
 {
     public $baseName= 'login';  //meghatározni, hogy melyik oldalon vagyunk
@@ -18,7 +18,9 @@ class Hirekfeldolgozoc_Controller
             //modellből lekérdezzük a kért adatot
            // $reqData= $testModel->get_data($vars['data']); 
             //betöltjük a nézetet
-            $view= new View_Loader('hirekmodositas_main');
+            $gepek= Hirek::getAll();
+            $view= new View_Loader('hirekuser_main');
+            $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
             //átadjuk a lekérdezett adatokat a nézetnek
             $view->assign('szoveg', "tesztszöveg");
             //$view->assign('content', $reqData['content']);

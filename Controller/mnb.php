@@ -59,6 +59,7 @@ class Mnb_Controller
             }
         }
         $view = new View_Loader(Mnb_Controller::HTML_PAGE);
+        $user=unserialize( $_SESSION["user"]);
         $defaultStartDate = date('Y-m-d', strtotime('-5 month'));
         $defaultCurrencies = ["USD", "EUR", "CZK"];
         $data = $this->getExchangeData($defaultStartDate, null, $defaultCurrencies);
@@ -66,6 +67,7 @@ class Mnb_Controller
 
         $view->assign('models', $data);
         $view->assign('currencies', $this->mnbService->getCurrencies());
+        $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
     }
 
     private function getExchangeData($startDate, $endDate, $selectedCurrencies)

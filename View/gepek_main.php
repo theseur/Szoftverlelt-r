@@ -12,6 +12,8 @@
     <section>
         <div class="container">
             <h2>Gépek</h2>
+            <?php include "nameinheader.php"?>
+            <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
             <table class="table table-striped">
                 <thead>
                     <tr>

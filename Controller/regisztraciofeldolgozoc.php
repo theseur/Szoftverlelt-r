@@ -14,7 +14,7 @@ class Regisztraciofeldolgozoc_Controller
        {
         $csaladi_nev=$_POST["csaladi_nev"];
         $utonev=$_POST["utonev"];
-        $bejelentkezes=$_POST["utonev"];
+        $bejelentkezes=$_POST["bejelentkezes"];
         $jelszo=$_POST["jelszo"];
         $gepek= Felhasznalok::regisztacio($csaladi_nev, $utonev, $bejelentkezes, $jelszo);
         $view= new View_Loader('login_main');

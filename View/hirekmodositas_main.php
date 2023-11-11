@@ -9,6 +9,7 @@
             <h1 class="header">Hírek módosítása</h1>
             <?php include "nameinheader.php"?>
         </header>
+        <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
         <section>
         <?php if(isset($viewData["hibauzenet"]))
         {
@@ -24,6 +25,6 @@
             
 
         </section>
-        <footer>lábléc</footer>
+        <?php include_once './View/common/footer.php';   ?>>
     </body>
 </html>

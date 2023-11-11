@@ -4,7 +4,7 @@ include_once("Model/hirek.php");
 include_once("Model/felhasznalok.php");
 class Hirektorlesc_Controller
 {
-    public $baseName= 'hirek';  //meghatározni, hogy melyik oldalon vagyunk
+    public $baseName= 'hirekuser';  //meghatározni, hogy melyik oldalon vagyunk
 
     public function main() // a routeráltal továbbított paramétereket kapja
     {
@@ -23,7 +23,7 @@ class Hirektorlesc_Controller
                 //átadjuk a lekérdezett adatokat a nézetnek
                 $view->assign('szoveg', "tesztszöveg");
                 //$view->assign('content', $reqData['content']);
-                
+                $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
                 $view->assign('gepek', $gepek);
 
         

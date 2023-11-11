@@ -7,9 +7,11 @@
     <body>
         <header>
             <h1 class="header">Gépek</h1>
-            <?php include "nameinheader.php"?>
+            
         </header>
         <section>
+        <?php include "nameinheader.php"?>
+        <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
             <table>
             <tr>
                     <th>Hely</th>
@@ -26,6 +28,6 @@
              ?>
              </table>
         </section>
-        <footer>lábléc</footer>
+        <?php include_once './View/common/footer.php';   ?>
     </body>
 </html>

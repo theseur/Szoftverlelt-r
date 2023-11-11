@@ -10,7 +10,8 @@
             <?php include "nameinheader.php"?>
         </header>
         <section>
-            <a href="index.php?page=hirekhozzaadc&id">új hír</a>';
+            <a href="index.php?page=hirekhozzaadc">új hír</a>
+            <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
             <table>
                 <!--megnezni-->
             <?php foreach($viewData["gepek"] as $gep)

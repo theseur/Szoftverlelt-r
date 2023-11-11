@@ -32,6 +32,7 @@ function selection($currencies)
 
 <body>
 <?php include "nameinheader.php"?>
+<a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
     <div class="container">
 
         <div class="card" style="border: 0;">

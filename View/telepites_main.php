@@ -11,6 +11,7 @@
 <body>
     <section>
     <?php include "nameinheader.php"?>
+    <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
         <div class="container">
             <?php if (!empty($viewData["szoftver"])) { ?>
                 <h2>
