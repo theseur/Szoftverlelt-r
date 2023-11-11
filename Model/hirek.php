@@ -33,29 +33,38 @@ class Hirek
         return $ures;
     }
 
-    public static function modositaskiolvas($id,$userid)
+    public static function modositaskiolvas($id)
     {
         $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
         $data=$pdo->query("Select * from hirek
-        WHERE userid=$userid
         WHERE id=$id");
 
     }
 
-    public static function modositas($id,$userid)
+    public static function modositas($id, $hir)
     {
         $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
-        $data=$pdo->query("Select * from hirek order by id desc");
+        $data=$pdo->query("UPDATE hirek 
+        SET hir='$hir'
+        where id=$id
+        ");
 
     }
-    public static function torles($id, $userid)
+    public static function torles($id)
     {
         $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
         $data=$pdo->query("UPDATE hirek
         SET deactivate = 1
         WHERE id=$id
-        and userid=$userid
         ");
+
+    }
+    public static function beillesztes($userid, $hir)
+    {
+        
+        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $data=$pdo->query("INSERT into hirek (hir,userid)
+        VALUES('$hir',$userid)");
 
     }
 

@@ -4,11 +4,13 @@
 <head>
     <meta charset="utf-8">
     <title>Telepiteslista</title>
+      <?php include "nameinheader.php"?>
     <?php include_once './View/common/head.php';    ?>
 </head>
 
 <body>
     <section>
+    <?php include "nameinheader.php"?>
         <div class="container">
             <?php if (!empty($viewData["szoftver"])) { ?>
                 <h2>

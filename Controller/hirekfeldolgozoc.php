@@ -1,8 +1,9 @@
 <?php
 include_once("View/view_loader.php");
 include_once("Model/felhasznalok.php");
+include_once("Model/hirek.php");
 ;
-class Hirekmodositasc_Controller
+class Hirekfeldolgozoc_Controller
 {
     public $baseName= 'login';  //meghatározni, hogy melyik oldalon vagyunk
 
@@ -10,7 +11,7 @@ class Hirekmodositasc_Controller
     {
         
         $user=unserialize( $_SESSION["user"]);
-            $gepek= Hirek::modositaskiolvas($user->id);
+            $gepek= Hirek::beillesztes($user->id, $_POST["hir"]);
         //var_dump($gepek);
         //$testModel= new Test_Model;  //az osztályhoz tartozó modell
      

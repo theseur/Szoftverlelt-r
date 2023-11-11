@@ -10,7 +10,7 @@
             <?php include "nameinheader.php"?>
         </header>
         <section>
-        <?php  echo '<a href="index.php?page=hirekhozzaadc&id='.$gep->id.'">új hír</a>';?>
+            <a href="index.php?page=hirekhozzaadc&id">új hír</a>';
             <table>
                 <!--megnezni-->
             <?php foreach($viewData["gepek"] as $gep)
@@ -18,7 +18,7 @@
                     echo "<tr>";
                     echo "<td>". $gep->hir."</td>";
                     echo "<td>". $gep->datum."</td>";
-                    echo '<td><a href="index.php?page=hirekmodositas&id='.$gep->id.'">módosítás</a></td>';
+                    echo '<td><a href="index.php?page=hirekmodositasc&id='.$gep->id.'">módosítás</a></td>';
                     echo '<td><a href="index.php?page=hirektorlesc&id='.$gep->id.'">törlés</a></td>';
                     echo "</tr>";
             } 

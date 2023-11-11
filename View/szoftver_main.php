@@ -12,6 +12,7 @@
     <section>
         <div class="container">
             <h2>Szoftverek</h2>
+            <?php include "nameinheader.php"?>
             <table class="table table-striped">
                 <thead>
                     <tr>

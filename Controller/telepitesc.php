@@ -2,6 +2,7 @@
 include_once 'View/view_loader.php';
 require_once './Service/softwareService.php';
 include_once("Model/telepites.php");
+include_once("Model/felhasznalok.php");
 
 class Telepitesc_Controller
 {
@@ -16,6 +17,8 @@ class Telepitesc_Controller
     public function main()
     {
         $view = new View_Loader($this->baseName . '_main');
+        $user=unserialize( $_SESSION["user"]);
+        $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['sw_id'])) {
 
             $sw_id = $_GET['sw_id'];

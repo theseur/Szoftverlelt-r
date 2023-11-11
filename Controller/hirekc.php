@@ -1,6 +1,7 @@
 <?php
 include_once("View/view_loader.php");
 include_once("Model/hirek.php");
+include_once("Model/felhasznalok.php");
 class Hirekc_Controller
 {
     public $baseName= 'hirek';  //meghatározni, hogy melyik oldalon vagyunk
@@ -18,6 +19,8 @@ class Hirekc_Controller
            // $reqData= $testModel->get_data($vars['data']); 
             //betöltjük a nézetet
             $view= new View_Loader('hirekuser_main');
+            $user=unserialize( $_SESSION["user"]);
+            $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
             //átadjuk a lekérdezett adatokat a nézetnek
             $view->assign('szoveg', "tesztszöveg");
             //$view->assign('content', $reqData['content']);

@@ -35,7 +35,7 @@ class Felhasznalok
         );
     }
 
-    public function login($bejelentkezes, $jelszo)
+    public static function login($bejelentkezes, $jelszo)
     {
 
         $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
@@ -55,7 +55,7 @@ class Felhasznalok
 
     }
 
-    public function regisztacio($csaladi_nev, $utonev, $bejelentkezes, $jelszo)
+    public static function regisztacio($csaladi_nev, $utonev, $bejelentkezes, $jelszo)
     {
         $sikeresreg=false;
         if($_POST["jelszo"]!=$_POST["jelszo1"])

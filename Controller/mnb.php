@@ -1,6 +1,7 @@
 <?php
 include_once 'View/view_loader.php';
 require_once 'mnb/MNBService.php';
+include_once("Model/felhasznalok.php");
 
 
 class Mnb_Controller

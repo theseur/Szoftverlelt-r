@@ -1,6 +1,7 @@
 <?php
 require_once './Service/softwareService.php';
 include_once 'View/view_loader.php';
+include_once("Model/felhasznalok.php");
 
 class Szoftverc_Controller
 {
@@ -15,7 +16,12 @@ class Szoftverc_Controller
 
     public function main()
     {
+        
         $view = new View_Loader($this->baseName . '_main');
+        $user=unserialize( $_SESSION["user"]);
+        $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
         $view->assign('softwares', $this->softwareService->listAllSoftware());
+
+        
     }
 }
