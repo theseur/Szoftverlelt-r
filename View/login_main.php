@@ -15,7 +15,7 @@
                 <label for="fname">Bejelentkezesi név:</label><br>
                 <input type="text" id="bejelentkezes" name="bejelentkezes"><br>
                 <label for="lname">jelszó:</label><br>
-                <input type="text" id="jelszo" name="jelszo">
+                <input type="password" id="jelszo" name="jelszo">
                 <input type="submit" value="Elküldés">
             </form>
             <a href="index.php?page=regisztracioc">Regisztráció</a>

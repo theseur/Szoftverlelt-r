@@ -10,7 +10,7 @@ class Hirekmodositasc_Controller
     public function main() // a routeráltal továbbított paramétereket kapja
     {
         
-        $user=unserialize( $_SESSION["usernamew"]);
+        $user=unserialize( $_SESSION["user"]);
             $gepek= Hirek::modositaskiolvas($user->id);
             
         //var_dump($gepek);
@@ -24,7 +24,6 @@ class Hirekmodositasc_Controller
             //átadjuk a lekérdezett adatokat a nézetnek
             $view->assign('szoveg', "tesztszöveg");
             //$view->assign('content', $reqData['content']);
-            $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
             $view->assign('gepek', $gepek);
            
         

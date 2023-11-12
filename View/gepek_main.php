@@ -5,7 +5,6 @@
 <body>
     <section>
         <div class="container">
-            <!-- <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a> -->
             <?php include_once './View/common/menu.php'; ?>
             <table class="table table-striped">
                 <thead>

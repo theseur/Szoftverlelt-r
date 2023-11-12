@@ -30,8 +30,7 @@ class Loginfeldolgozoc_Controller
                 $view= new View_Loader('mainpage_main');
 
                 $user = $gepek[0];
-                $username =  $user->csaladi_nev . " " . $user->utonev . " (" . $user->bejelentkezes . ")";
-                $_SESSION["user"]=$username ;
+                $_SESSION["user"]=serialize($user);
             }
         
     }

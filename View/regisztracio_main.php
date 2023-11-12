@@ -18,9 +18,9 @@
                 <label for="fname">Bejelentkezesi név:</label><br>
                 <input type="text" id="bejelentkezes" name="bejelentkezes"><br>
                 <label for="lname">jelszó:</label><br>
-                <input type="text" id="jelszo" name="jelszo"><br>
+                <input type="password" id="jelszo" name="jelszo"><br>
                 <label for="lname">jelszó még egyszer:</label><br>
-                <input type="text" id="jelszo1" name="jelszo1"><br>
+                <input type="password" id="jelszo1" name="jelszo1"><br>
                 <input type="submit" value="Elküldés">
             </form>
 

@@ -1,8 +1,9 @@
-<?php function isLoggedIn(): bool
+<?php
+include_once("Model/felhasznalok.php");
+function isLoggedIn(): bool
 {
     return isset($_SESSION['user']);
 }
-
 
 function getMenuItems(): array
 {
@@ -10,19 +11,17 @@ function getMenuItems(): array
     return array_filter(PUBLIC_MENU, function ($item) use ($isLoggedIn) {
         return $item['loginRequired'] === $isLoggedIn;
     });
-
 }
 
 function getUserName()
 {
     if (isLoggedIn()) {
-        $user = $_SESSION["user"];
-        echo "<i>" . $user . "</i>";
+        $user = unserialize($_SESSION["user"]);
+        echo "<i>" . $user->csaladi_nev . " " . $user->utonev . " (" . $user->bejelentkezes . ")</i>";
     } else {
         echo "<i>Unknown user</i>";
     }
 }
-
 ?>
 
 

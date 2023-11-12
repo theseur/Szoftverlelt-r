@@ -9,7 +9,6 @@
             <h1 class="header">Hírek hozzáadása</h1>
             <?php include "nameinheader.php"?>
         </header>
-        <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
         <section>
         <?php if(isset($viewData["hibauzenet"]))
         {
