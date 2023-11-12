@@ -52,7 +52,7 @@ class Hirek
     }
     public static function torles($id)
     {
-        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
         $data=$pdo->query("UPDATE hirek
         SET deactivate = 1
         WHERE id=$id
@@ -62,7 +62,7 @@ class Hirek
     public static function beillesztes($userid, $hir)
     {
         
-        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
         $data=$pdo->query("INSERT into hirek (hir,userid)
         VALUES('$hir',$userid)");
 
