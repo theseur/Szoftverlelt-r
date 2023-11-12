@@ -17,7 +17,12 @@ class UserService
     public function listUsers(): array
     {
         $users = [];
-        foreach ($this->dbModel->findAll("SELECT * FROM felhasznalok") as $row) {
+        $result = $this->dbModel->findAll("SELECT * FROM felhasznalok");
+        print_r("RESULT:<br>");
+        print_r($result);
+        print_r("<br>");
+        print_r("<br>");
+        foreach ($result as $row) {
             $users[] = Felhasznalok::instanceof($row);
         }
         return $users;

@@ -22,7 +22,7 @@ class Felhasznalok
 
     }
 
-    public static function instanceof(string $row)
+    public static function instanceof($row)
     {
         return new self(
                 $row['id'],
@@ -38,7 +38,7 @@ class Felhasznalok
     public static function login($bejelentkezes, $jelszo)
     {
 
-        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
         $data=$pdo->query("Select * from felhasznalok 
         where bejelentkezes = '$bejelentkezes'
         and

@@ -20,10 +20,10 @@ const RIGHT = 1;
 const PUBLIC_MENU = [
     ['route' => 'index.php', 'text' => 'Főoldal', 'loginRequired' => true, 'align' => LEFT],
     ['route' => 'index.php?page=gepek', 'text' => 'Gépek', 'loginRequired' => true, 'align' => LEFT],
-    ['route' => 'index.php?page=szoftverc', 'text' => 'Szoftvrek', 'loginRequired' => true, 'align' => LEFT],
+    ['route' => 'index.php?page=szoftverc', 'text' => 'Szoftverek', 'loginRequired' => true, 'align' => LEFT],
     ['route' => 'index.php?page=hirekc', 'text' => 'Hírek, vélemények', 'loginRequired' => true, 'align' => LEFT],
     ['route' => 'index.php?page=mnb', 'text' => 'MNB Árfolyam', 'loginRequired' => true, 'align' => LEFT],
-    ['route' => 'Kliens/soap_client.php', 'text' => 'Soap Kliens (teszt)', 'loginRequired' => true, 'align' => LEFT],
+    ['route' => 'Kliens/soap_client.php', 'text' => 'SOAP Kliens (teszt)', 'loginRequired' => true, 'align' => LEFT],
 
 
     ['route' => 'index.php?page=loginc', 'text' => 'Belépés', 'loginRequired' => false, 'align' => RIGHT],

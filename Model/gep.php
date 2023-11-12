@@ -18,7 +18,7 @@ class Gep
     }
     public static function getAll()
     {
-        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $pdo =new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
         $data=$pdo->query("Select * from gep
         where deactivate =0");
         $ures=[];

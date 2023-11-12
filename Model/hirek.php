@@ -20,7 +20,7 @@ class Hirek
     
     public static function getAll()
     {
-        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
         $data=$pdo->query("Select * from hirek 
         where deactivate =0
         order by id desc");
@@ -35,7 +35,7 @@ class Hirek
 
     public static function modositaskiolvas($id)
     {
-        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $pdo =new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
         $data=$pdo->query("Select * from hirek
         WHERE id=$id");
 
@@ -43,7 +43,7 @@ class Hirek
 
     public static function modositas($id, $hir)
     {
-        $pdo = new PDO("mysql:host=localhost;dbname=szoftverleltar", 'root', '');
+        $pdo =new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
         $data=$pdo->query("UPDATE hirek 
         SET hir='$hir'
         where id=$id

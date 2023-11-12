@@ -46,7 +46,7 @@ function felhasznalok($kliens)
 
     foreach ($kliens->felhasznalok() as $elem) {
         echo "Felhasznalo [ id= " . $elem->id . ", nev= "
-            . $elem->csaladi_nev + $elem->utonev . ", jogosultsag= " . $elem->jogosultsag
+            . $elem->csaladi_nev . "" . $elem->utonev . ", jogosultsag= " . $elem->jogosultsag
             . ", active = " . (($elem->deactivate === null || $elem->deactivate === 0) ? "igen" : "nem")
             . "]<br>";
     }
