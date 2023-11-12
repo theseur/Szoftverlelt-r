@@ -35,7 +35,7 @@ class SoapService
         return $this->softwareService->listTelepitesBySzoftverId($szoftverId);
     }
 
-    public function GepreTelepitettSzoftverek(int $gepId)
+    public function GepreTelepitettSzoftverek($gepId)
     {
         return $this->softwareService->gepreTelepitettRendszerek($gepId);
     }
@@ -45,7 +45,7 @@ class SoapService
         return $this->userService->hirek();
     }
 
-    public function FelhasznaloHirei(int $felhasznaloid)
+    public function FelhasznaloHirei($felhasznaloid)
     {
         //TODO: need service
         return null;

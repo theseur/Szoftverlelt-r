@@ -34,7 +34,7 @@ class SoftwareService
         return $machines;
     }
 
-    public function listTelepitesBySzoftverId(int $szoftverId): array
+    public function listTelepitesBySzoftverId($szoftverId): array
     {
         $query = "SELECT DISTINCT 
                     sz.nev as szoftverName,
@@ -53,7 +53,7 @@ class SoftwareService
         return $this->wrapResult($query, $szoftverId);
     }
 
-    public function gepreTelepitettRendszerek(int $gepId): array
+    public function gepreTelepitettRendszerek($gepId): array
     {
         $query = "SELECT DISTINCT 
                     sz.nev as szoftverName,
@@ -72,7 +72,7 @@ class SoftwareService
         return $this->wrapResult($query, $gepId);
     }
 
-    private function wrapResult(string $query, int $parameter): array
+    private function wrapResult(string $query, $parameter): array
     {
         $telepites = [];
         $stmt = $this->dbModel->getPDO()->prepare($query);
