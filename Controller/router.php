@@ -26,20 +26,7 @@ else
 { 
     $mainpage = new MainPage_Controller();
     $mainpage->main();
-    
-    //die('pagedoesnotexist!'); 
 
 }
-
-
-/*function __autoload($className)
-{
-    $file='Model/'.strtolower($className).'.php';
-    if(file_exists($file))
-    { include_once($file); }
-    else
-    { die("File '$filename' containingclass'$className' notfound."); }
-}*/
-
 
 ?>

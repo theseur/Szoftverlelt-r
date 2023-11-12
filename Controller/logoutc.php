@@ -14,9 +14,12 @@ class Logoutc_Controller
             //modellből lekérdezzük a kért adatot
            // $reqData= $testModel->get_data($vars['data']); 
             //betöltjük a nézetet
+            session_unset();
             session_destroy();
-            $view= new View_Loader($this->baseName.'_main');
-           
+            //$view= new View_Loader($this->baseName.'_main');
+            header("Location: " . HOME_PAGE);
+            //redirect('/' . HOME_PAGE, 'Sikeres kijelentkezés!', 'success');
+            exit();
         
     }
 }

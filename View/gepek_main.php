@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <title>Szoftverlista</title>
-
-    <?php include_once './View/common/head.php';    ?>
-</head>
-
+<?php include_once './View/common/head.php';    ?>
 <body>
     <section>
         <div class="container">
-            <h2>Gépek</h2>
-            <?php include "nameinheader.php"?>
-            <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
+            <!-- <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a> -->
+            <?php include_once './View/common/menu.php'; ?>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -52,6 +45,8 @@
             </table>
     </section>
     <?php include_once './View/common/footer.php';   ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

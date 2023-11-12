@@ -12,8 +12,8 @@ class Mainpageuserc_Controller
         {
             
             $view= new View_Loader('mainpageuser_main');
-            $user=unserialize( $_SESSION["user"]);
-            $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
+          //  $user=unserialize( $_SESSION["user"]);
+          //  $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
 
 
         }

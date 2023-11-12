@@ -31,9 +31,9 @@ function selection($currencies)
 </head>
 
 <body>
-<?php include "nameinheader.php"?>
-<a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
+
     <div class="container">
+        <?php include_once './View/common/menu.php'; ?>
 
         <div class="card" style="border: 0;">
             <div class="card-body">
@@ -137,6 +137,7 @@ function selection($currencies)
             $('#submit_data').click(function() {
                 $('#chartContainer').show();
                 clearTable();
+                clearNoData();
 
                 var startDate = $('#start_date').val();
                 var endDate = $('#end_date').val();
@@ -166,6 +167,7 @@ function selection($currencies)
             $('#nap-arfolyam-btn').click(function() {
                 $('#chartContainer').hide();
                 clearTable();
+                clearNoData();
 
                 var day = $('#napi-arfolyam-date').val();
                 var selectedCurrencies = $('#napi-arfolyam-selector').val();
@@ -188,6 +190,7 @@ function selection($currencies)
             $('#havi-arfolyam-btn').click(function() {
                 $('#chartContainer').hide();
                 clearTable();
+                clearNoData();
 
                 var month = $('#havi-arfolyam-date').val();
                 var selectedCurrencies = $('#havi-arfolyam-selector').val();
@@ -207,6 +210,15 @@ function selection($currencies)
 
             function clearTable() {
                 document.getElementById('exchangeRateTable').innerHTML = '';
+            }
+
+            function clearNoData() {
+                var div = document.getElementById("exchangeRateTableContainer");
+                var elementToRemove = document.getElementById('nincs_adat');
+                if (elementToRemove) {
+                    div.removeChild(elementToRemove);
+                }
+
             }
 
             function printTableForMonthlyExchange(data) {
