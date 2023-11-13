@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <title>Telepiteslista</title>
-      <?php include "nameinheader.php"?>
-    <?php include_once './View/common/head.php';    ?>
-</head>
+<?php include_once './View/common/head.php';    ?>
 
 <body>
     <section>
-    <?php include "nameinheader.php"?>
-    <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
+
         <div class="container">
+            <?php include_once './View/common/menu.php'; ?>
+
             <?php if (!empty($viewData["szoftver"])) { ?>
                 <h2>
                     A <i>

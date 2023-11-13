@@ -10,23 +10,12 @@ class Hirekc_Controller
     {
         if(isset($_SESSION["user"]))
         {
-            $user=unserialize( $_SESSION["user"]);
-            $gepek= Hirek::getAll();
-        //var_dump($gepek);
-        //$testModel= new Test_Model;  //az osztályhoz tartozó modell
-     
-            //modellből lekérdezzük a kért adatot
-           // $reqData= $testModel->get_data($vars['data']); 
-            //betöltjük a nézetet
-            $view= new View_Loader('hirekuser_main');
-            $user=unserialize( $_SESSION["user"]);
-            $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
-            //átadjuk a lekérdezett adatokat a nézetnek
-            $view->assign('szoveg', "tesztszöveg");
-            //$view->assign('content', $reqData['content']);
-            
-            $view->assign('gepek', $gepek);
 
+            $gepek= Hirek::getAll();
+            $view= new View_Loader('hirekuser_main');
+
+            $view->assign('szoveg', "tesztszöveg");
+            $view->assign('gepek', $gepek);
         }
         else
         {
@@ -51,4 +40,3 @@ class Hirekc_Controller
         
     }
 }
-?>

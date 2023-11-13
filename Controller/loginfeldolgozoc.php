@@ -27,12 +27,11 @@ class Loginfeldolgozoc_Controller
             }
             else
             {
-                $view= new View_Loader('mainpageuser_main');
-                $_SESSION["user"]=serialize($gepek[0]) ;
-                $view->assign('teljesnev', $gepek[0]->csaladi_nev." ". $gepek[0]->utonev." ".$gepek[0]->bejelentkezes);
+                $view= new View_Loader('mainpage_main');
 
+                $user = $gepek[0];
+                $_SESSION["user"]=serialize($user);
             }
         
     }
 }
-?>

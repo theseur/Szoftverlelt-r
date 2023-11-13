@@ -18,7 +18,6 @@ class Hirekhozzaadc_Controller
             //betöltjük a nézetet
             $view= new View_Loader($this->baseName.'_main');
             $user=unserialize( $_SESSION["user"]);
-            $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
             $view->assign('userid', $user->id);
            
         

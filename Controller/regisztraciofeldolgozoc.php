@@ -18,7 +18,7 @@ class Regisztraciofeldolgozoc_Controller
         $jelszo=$_POST["jelszo"];
         $gepek= Felhasznalok::regisztacio($csaladi_nev, $utonev, $bejelentkezes, $jelszo);
         $view= new View_Loader('login_main');
-        $view->assign('hibauzenet', "Sikerült bejelentkezni");
+        $view->assign('hibauzenet', "Regisztráció sikeres");
 
        }
        else

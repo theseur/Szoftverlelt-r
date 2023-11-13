@@ -1,8 +1,8 @@
 <?php
-require_once 'model/mnb/currency.php';
-require_once 'model/mnb/exchange.php';
-require_once 'model/mnb/dateInterval.php';
-require_once 'model/mnb/day.php';
+require_once 'Model/mnb/currency.php';
+require_once 'Model/mnb/exchange.php';
+require_once 'Model/mnb/dateInterval.php';
+require_once 'Model/mnb/day.php';
 
 
 class MNBSoapClient

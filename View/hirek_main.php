@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Hírek</title>
-    </head>
-    <body>
-        <header>
+<?php include_once './View/common/head.php';    ?>
+
+<body>
+    <section>
+        <div class="container">
+            <?php include_once './View/common/menu.php'; ?>
+
             <h1 class="header">Hírek</h1>
-            <?php include "nameinheader.php"?>
-        </header>
-        <section>
             <table>
-                
-            <?php foreach($viewData["gepek"] as $gep)
-            {
+
+                <?php foreach ($viewData["gepek"] as $gep) {
                     echo "<tr>";
-                    echo "<td>". $gep->hir."</td>";
-                    echo "<td>". $gep->datum."</td>";
+                    echo "<td>" . $gep->hir . "</td>";
+                    echo "<td>" . $gep->datum . "</td>";
                     echo "</tr>";
-            } 
-             ?>
-
-
-
-        </table>
+                }
+                ?>
+            </table>
     </section>
     <?php include_once './View/common/footer.php';   ?>
 </body>

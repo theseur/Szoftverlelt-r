@@ -24,7 +24,6 @@ class Hirekmodositasc_Controller
             //átadjuk a lekérdezett adatokat a nézetnek
             $view->assign('szoveg', "tesztszöveg");
             //$view->assign('content', $reqData['content']);
-            $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
             $view->assign('gepek', $gepek);
            
         

@@ -1,6 +1,6 @@
 <?php
 include_once 'View/view_loader.php';
-require_once 'mnb/MNBService.php';
+include_once 'mnb/mnbService.php';
 include_once("Model/felhasznalok.php");
 
 
@@ -36,13 +36,11 @@ class Mnb_Controller
 
                 print_r($data);
                 exit();
-                
             } else if ($_GET['action'] === 'getDailyExchangeData') {
                 $day = $_POST['day'];
 
                 print_r($this->getExchangeData($day, $day, $selectedCurrencies));
                 exit();
-
             } else if ($_GET['action'] === 'getMonthlyExchangeData') {
                 $incomMonth = $_POST['month'];
                 list($year, $month) = explode('-', $incomMonth);
@@ -59,7 +57,7 @@ class Mnb_Controller
             }
         }
         $view = new View_Loader(Mnb_Controller::HTML_PAGE);
-        $user=unserialize( $_SESSION["user"]);
+
         $defaultStartDate = date('Y-m-d', strtotime('-5 month'));
         $defaultCurrencies = ["USD", "EUR", "CZK"];
         $data = $this->getExchangeData($defaultStartDate, null, $defaultCurrencies);
@@ -67,7 +65,6 @@ class Mnb_Controller
 
         $view->assign('models', $data);
         $view->assign('currencies', $this->mnbService->getCurrencies());
-        $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
     }
 
     private function getExchangeData($startDate, $endDate, $selectedCurrencies)

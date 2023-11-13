@@ -20,10 +20,6 @@ class Hirekfeldolgozoc_Controller
             //betöltjük a nézetet
             $gepek= Hirek::getAll();
             $view= new View_Loader('hirekuser_main');
-            $view->assign('teljesnev', $user->csaladi_nev." ".$user->utonev." ".$user->bejelentkezes);
-            //átadjuk a lekérdezett adatokat a nézetnek
-            $view->assign('szoveg', "tesztszöveg");
-            //$view->assign('content', $reqData['content']);
             
             $view->assign('gepek', $gepek);
            

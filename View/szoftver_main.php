@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <title>Szoftverlista</title>
-
-    <?php include_once './View/common/head.php';    ?>
-</head>
+<?php include_once './View/common/head.php';    ?>
 
 <body>
     <section>
         <div class="container">
-            <h2>Szoftverek</h2>
-            <?php include "nameinheader.php"?>
-            <a href="index.php?page=mainpageuserc">Vissza a főoldalra</a>
+            <?php include_once './View/common/menu.php'; ?>
+            
             <table class="table table-striped">
                 <thead>
                     <tr>
