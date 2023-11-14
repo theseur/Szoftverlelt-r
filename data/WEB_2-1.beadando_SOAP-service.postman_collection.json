@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "083eca51-23f3-4962-89a8-81430fb4e4e1",
+		"name": "WEB_2-1.beadando_SOAP-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11191338"
+	},
+	"item": [
+		{
+			"name": "Hírek",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Hirek>\r\n        </ser:Hirek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://szoftverleltar1.nhely.hu/Server/soap_server.php",
+					"protocol": "http",
+					"host": [
+						"szoftverleltar1",
+						"nhely",
+						"hu"
+					],
+					"path": [
+						"Server",
+						"soap_server.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Szoftverek",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Szoftverek>\r\n        </ser:Szoftverek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://szoftverleltar1.nhely.hu/Server/soap_server.php",
+					"protocol": "http",
+					"host": [
+						"szoftverleltar1",
+						"nhely",
+						"hu"
+					],
+					"path": [
+						"Server",
+						"soap_server.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Felhasznalok",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Szoftverek>\r\n        </ser:Szoftverek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://szoftverleltar1.nhely.hu/Server/soap_server.php",
+					"protocol": "http",
+					"host": [
+						"szoftverleltar1",
+						"nhely",
+						"hu"
+					],
+					"path": [
+						"Server",
+						"soap_server.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gepek",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Szoftverek>\r\n        </ser:Szoftverek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://szoftverleltar1.nhely.hu/Server/soap_server.php",
+					"protocol": "http",
+					"host": [
+						"szoftverleltar1",
+						"nhely",
+						"hu"
+					],
+					"path": [
+						"Server",
+						"soap_server.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TelepitettSzoftverBySzoftverId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Szoftverek>\r\n        </ser:Szoftverek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://szoftverleltar1.nhely.hu/Server/soap_server.php",
+					"protocol": "http",
+					"host": [
+						"szoftverleltar1",
+						"nhely",
+						"hu"
+					],
+					"path": [
+						"Server",
+						"soap_server.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GepreTelepitettSzoftverek",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:GepreTelepitettSzoftverek>\r\n        <ser:gepId>2</ser:gepId>\r\n        </ser:SzoftvGepreTelepitettSzoftverekerek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://szoftverleltar1.nhely.hu/Server/soap_server.php",
+					"protocol": "http",
+					"host": [
+						"szoftverleltar1",
+						"nhely",
+						"hu"
+					],
+					"path": [
+						"Server",
+						"soap_server.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
