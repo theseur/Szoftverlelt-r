@@ -21,24 +21,4 @@ class Telepites
         $this->datum=$row['datum'];
     }
 
-  
-    public static function getAll()
-    {
-        $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
-        $data=$pdo->query("Select * from telepites
-        where deactivate =0
-        ");
-        $ures=[];
-        foreach ($data as $row )
-        {
-            $ujgep= new Telepites($row['id'],$row['gepid'],$row['szoftverid'], $row['verzio'], $row['datum'], $row['deactivate']);
-            array_push($ures,$ujgep);
-        }
-        return $ures;
-    }
-
 }
-
-
-
-?>
