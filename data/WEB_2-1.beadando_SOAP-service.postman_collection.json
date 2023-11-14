@@ -73,7 +73,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Szoftverek>\r\n        </ser:Szoftverek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Felhasznalok>\r\n        </ser:Felhasznalok>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
 					"options": {
 						"raw": {
 							"language": "xml"
@@ -103,7 +103,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Szoftverek>\r\n        </ser:Szoftverek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Gepek>\r\n        </ser:Gepek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
 					"options": {
 						"raw": {
 							"language": "xml"
@@ -133,7 +133,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:Szoftverek>\r\n        </ser:Szoftverek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:TelepitettSzoftver>\r\n        <ser:szoverId>23</ser:szoverId>\r\n        </ser:TelepitettSzoftver>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
 					"options": {
 						"raw": {
 							"language": "xml"
@@ -163,7 +163,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:GepreTelepitettSzoftverek>\r\n        <ser:gepId>2</ser:gepId>\r\n        </ser:SzoftvGepreTelepitettSzoftverekerek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://szoftverleltar1.nhely.hu/Server/soap_server.php\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:GepreTelepitettSzoftverek>\r\n        <ser:gepId>2</ser:gepId>\r\n        </ser:GepreTelepitettSzoftverek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
 					"options": {
 						"raw": {
 							"language": "xml"
